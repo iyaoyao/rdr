@@ -22,13 +22,12 @@ import (
 
 	"fmt"
 
-	"path/filepath"
-
+	"encoding/json"
 	"github.com/dongmx/rdb"
 	"github.com/elazarl/go-bindata-assetfs"
+	"github.com/iyaoyao/rdr/static"
 	"github.com/julienschmidt/httprouter"
-	"github.com/xueqiu/rdr/static"
-	"encoding/json"
+	"path/filepath"
 )
 
 //go:generate go-bindata -prefix "static/" -o=static/static.go -pkg=static -ignore static.go static/...
@@ -186,10 +185,10 @@ func main() {
 	app.ErrWriter = os.Stderr
 	app.Commands = []cli.Command{
 		cli.Command{
-		    Name: "dump",
-		    Usage: "dump statistical information of rdbfile to STDOUT",
-		    ArgsUsage: "FILE1 [FILE2] [FILE3]...",
-		    Action: dump,
+			Name:      "dump",
+			Usage:     "dump statistical information of rdbfile to STDOUT",
+			ArgsUsage: "FILE1 [FILE2] [FILE3]...",
+			Action:    dump,
 		},
 		cli.Command{
 			Name:      "show",
@@ -217,4 +216,3 @@ func main() {
 	}
 	app.Run(os.Args)
 }
-

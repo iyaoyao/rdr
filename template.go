@@ -18,13 +18,12 @@ import (
 	"bytes"
 	"crypto/md5"
 	"fmt"
+	"github.com/dustin/go-humanize"
+	"github.com/iyaoyao/rdr/views"
 	"html/template"
 	"log"
 	"net/http"
 	"strings"
-
-	"github.com/dustin/go-humanize"
-	"github.com/xueqiu/rdr/views"
 )
 
 var (
